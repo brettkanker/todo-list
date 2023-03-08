@@ -1,42 +1,48 @@
+<script>
+
+import Card from '@/components/Card.vue'
+
+// Lade Komponente Card
+export default {
+    name: 'TodoView',
+  components: {
+    Card
+  },
+
+  data() {
+    return {
+        todos: [
+            {
+                id: 1,
+                title: 'Zähne waschen!',
+                description: 'Lorem ipsum',
+                category: 'Zuhause',
+                time: '20:30',
+                urgency: 'Heiss',
+                status: 'offen'
+            },
+            {
+                id: 2,
+                title: 'Hello World!',
+                text: 'Lorem ipsum',
+                category: 'Zuhause',
+                time: '10:30',
+                urgency: 'Kalt',
+                status: 'offen'
+            },
+        ]
+      
+    }
+  }
+}
+</script>
+
+
 <template>
-  <div class="todo">
-    <div class="card" style="width: 13rem;">
-      <div class="card-body">
-        <h5 class="card-title">Zähne waschen</h5>
-        <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum eum labore aspernatur explicabo.</p>
-        <a href="#" class="card-link">Zuhause</a>
-        <p class="card-text">20:30</p>
-        <p class="card-text">Heiss</p>
-      </div>
-    </div>
 
-    <div class="card" style="width: 13rem;">
-      <div class="card-body">
-        <h5 class="card-title">Zähne waschen</h5>
-        <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum eum labore aspernatur explicabo.</p>
-        <a href="#" class="card-link">Zuhause</a>
-        <p class="card-text">20:30</p>
-        <p class="card-text">Heiss</p>
-      </div>
-    </div>
-
-    <div class="card" style="width: 13rem;">
-      <div class="card-body">
-        <h5 class="card-title">Zähne waschen</h5>
-        <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum eum labore aspernatur explicabo.</p>
-        <a href="#" class="card-link">Zuhause</a>
-        <p class="card-text">20:30</p>
-        <p class="card-text">Heiss</p>
-      </div>
-    </div>
-
-
+  <div v-for="todo in todos" v-bind:key="todo.id">
+    <Card v-bind="todo" />
   </div>
+
 </template>
 
-<style scoped>
-
-  .card {
-    margin: 50px 50px 20px 75px
-  }
-</style>
