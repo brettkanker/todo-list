@@ -1,14 +1,22 @@
 {
-  "todos": [
-    {
-      "title": "Zähne waschen",
-      "completed": true,
-      "id": 1
-    },
-    {
-      "title": "Hausaufgaben machen",
-      "completed": true,
-      "id": 2
-    }
-  ]
-}
+	"todos": [
+	  {
+		  "id": 1,
+		  "title": "Zähne waschen",
+		  "description": "Lorem ipsum",
+		  "category": "20:30",
+		  "urgency": "Heiss",
+		  "status": "Offen",
+		  "completed": false
+	  },
+	  {
+		  "id": 2,
+		  "title": "Hausaufgaben machen",
+		  "description": "Lorem ipsum",
+		  "category": "10:30",
+		  "urgency": "Keine",
+		  "status": "Geschlossen",
+		  "completed": true
+	  }
+	]
+  }

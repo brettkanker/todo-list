@@ -74,7 +74,6 @@ export default {
 
     <hr />
 
-	  <p>Test aus Umgebungsvariable via data: {{ some_key }}</p>
 
    
   
