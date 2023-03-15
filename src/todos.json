@@ -1,0 +1,14 @@
+{
+  "todos": [
+    {
+      "title": "Zähne waschen",
+      "completed": true,
+      "id": 1
+    },
+    {
+      "title": "Hausaufgaben machen",
+      "completed": true,
+      "id": 2
+    }
+  ]
+}
