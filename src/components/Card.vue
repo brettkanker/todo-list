@@ -46,35 +46,43 @@ export default {
 }
 </script>
 
-
 <template>
+    <div class="container">
+        <div class="card child" v-for="todo in todos" style="width: 13rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ todo.title }}</h5>
+                <p class="card-text">{{ todo.description }}</p>
+                <a href="#" class="card-link">{{ todo.category }}</a>
+                <p class="card-text">{{ todo.time }}</p>
+                <p class="card-text">{{ todo.urgency }}</p>
 
-    <div class="card" v-for="todo in todos" style="width: 13rem;">
-        <div class="card-body">
-            <h5 class="card-title">{{ todo.title }}</h5>
-            <p class="card-text">{{ todo.description }}</p>
-            <a href="#" class="card-link">{{ todo.category }}</a>
-            <p class="card-text">{{ todo.time }}</p>
-            <p class="card-text">{{ todo.urgency }}</p>
+                <p :class="todo.completed == true ? 'done': 'open'">{{todo.completed == true ? 'Erledigt!' : 'Offen'}}</p>
+                <button class="btn btn-sm btn-outline-primary" @click="toggle_todo_state(todo.id);">{{ todo.completed == true ? 'Offen markieren' : 'Erledigt markieren' }}</button>
 
-            <p :class="todo.completed == true ? 'done': 'open'">{{todo.completed == true ? 'Erledigt!' : 'Offen'}}</p>
-            <button class="btn btn-sm btn-outline-primary" @click="toggle_todo_state(todo.id);">{{ todo.completed == true ? 'Offen markieren' : 'Erledigt markieren' }}</button>
-
+            </div>
         </div>
     </div>
-
 
 </template>
 
 <style scoped>
-  .card {
-    margin: 50px 50px 20px 75px
-  }
 
   .done {
   color: green;
 }
 .open {
   color: red;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.child {
+    flex: 1;
+    flex-basis: 14%;
+    margin: 10px 10px 10px 10px;
 }
 </style>
