@@ -18,9 +18,6 @@ export default {
   data() {
 		return {
 
-      // Example to get a .env variable
-			some_key: import.meta.env.VITE_SOME_KEY
-
 		}
 	},
   
@@ -49,7 +46,11 @@ export default {
     <ul class="nav nav-tabs" id="myTab" role="tablist">
 
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="open-todos-tab" data-bs-toggle="tab" data-bs-target="#open-todos" type="button" role="tab">Offene ({{ todos_open != undefined ? todos_open.length : 0 }})</button>
+        <button class="nav-link active" id="all-todos-tab" data-bs-toggle="tab" data-bs-target="#all-todos" type="button" role="tab">Alle ({{ todos != undefined ? todos.data.length : 0 }})</button>
+      </li>
+
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="open-todos-tab" data-bs-toggle="tab" data-bs-target="#open-todos" type="button" role="tab">Offene ({{ todos_open != undefined ? todos_open.length : 0 }})</button>
       </li>
 
       <li class="nav-item" role="presentation">
@@ -61,6 +62,10 @@ export default {
 
     <!-- Tab content -->
     <div class="tab-content" id="todos">
+
+      <div class="tab-pane fade show active" id="all-todos" role="tabpanel">
+        <TodoList :todos="todos.data" />
+      </div>
 
       <div class="tab-pane fade show active" id="open-todos" role="tabpanel">
         <TodoList :todos="todos_open" @toggle-todo-state="toggleTodo" />
