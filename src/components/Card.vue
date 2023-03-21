@@ -47,7 +47,7 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <div class="container d-flex flex-wrap justify-content-left">
         <div class="card child" v-for="todo in todos" style="width: 13rem;">
             <div class="card-body">
                 <h5 class="card-title">{{ todo.title }}</h5>
@@ -74,15 +74,9 @@ export default {
   color: red;
 }
 
-.container{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.child {
+    margin: 20px 10px 20px 10px;
 }
 
-.child {
-    flex: 1;
-    flex-basis: 14%;
-    margin: 10px 10px 10px 10px;
-}
+
 </style>
