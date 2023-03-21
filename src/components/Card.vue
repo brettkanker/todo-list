@@ -2,34 +2,6 @@
 export default {
     name: 'Card',
 
-    // props: {
-    //     id: {
-	// 		type: Number,
-	// 		required: true
-	// 	},
-	// 	title: {
-	// 		type: String,
-	// 		required: true
-	// 	},
-	// 	description: {
-	// 		type: String
-	// 	},
-	// 	category: {
-	// 		type: String,
-	// 		required: true
-	// 	},
-	// 	time: {
-	// 		type: String
-	// 	},
-    //     urgency: {
-	// 		type: String
-	// 	},
-    //     status: {
-	// 		type: String,
-    //         required: true
-	// 	},
-    // },
-
     props: {
         todos: Array,
     },
@@ -49,7 +21,7 @@ export default {
 <template>
     <div class="container d-flex flex-wrap justify-content-left">
         <div class="card child" v-for="todo in todos" style="width: 13rem;">
-            <div class="card-body">
+            <div class="card-body" :class="todo.completed == true ? 'card-open': 'card-done'">
                 <h5 class="card-title">{{ todo.title }}</h5>
                 <p class="card-text">{{ todo.description }}</p>
                 <a href="#" class="card-link">{{ todo.category }}</a>
@@ -67,7 +39,7 @@ export default {
 
 <style scoped>
 
-  .done {
+.done {
   color: green;
 }
 .open {
@@ -76,6 +48,10 @@ export default {
 
 .child {
     margin: 20px 10px 20px 10px;
+}
+
+.card-open {
+    background-color: rgb(219, 219, 219);
 }
 
 
