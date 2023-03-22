@@ -9,7 +9,7 @@ export const useTodoStore = defineStore('todo', {
   }),
 
   getters: {
-
+    
     todos_completed: (state) => {
       if (state.todos.data) {
         return state.todos.data.filter(todo => (
@@ -56,6 +56,10 @@ export const useTodoStore = defineStore('todo', {
       // PUT request to server after toggle... :-)
       await axios.put(`http://localhost:3000/todos/${id}`, {
         title: this.current_todo.title,
+        description: this.current_todo.description,
+        category: this.current_todo.category,
+        priority: this.current_todo.priority,
+        time: this.current_todo.time,
         completed: this.current_todo.completed
       });
 

@@ -1,72 +1,84 @@
 {
   "todos": [
     {
-      "id": 1,
       "title": "Zähne waschen",
       "description": "Lorem ipsum",
       "category": "20:30",
-      "urgency": "Heiss",
-      "status": "Offen",
-      "completed": false
+      "priority": "Hoch",
+      "time": "10:30",
+      "completed": false,
+      "id": 1
     },
     {
-      "id": 2,
       "title": "Hausaufgaben machen",
       "description": "Lorem ipsum",
       "category": "10:30",
-      "urgency": "Keine",
-      "status": "Geschlossen",
-      "completed": true
+      "priority": "Keine",
+      "time": "Geschlossen",
+      "completed": false,
+      "id": 2
     },
     {
-      "title": "Zähne waschen",
-      "completed": true,
+      "title": "Hausaufgaben machen",
+      "description": "Lorem ipsum",
+      "category": "10:30",
+      "priority": "Keine",
+      "time": "Geschlossen",
+      "completed": false,
       "id": 3
     },
     {
-      "id": 4,
       "title": "Zähne waschen",
       "description": "Lorem ipsum",
       "category": "20:30",
-      "urgency": "Heiss",
-      "status": "Offen",
-      "completed": false
+      "priority": "Hoch",
+      "time": "10:30",
+      "completed": false,
+      "id": 4
     },
     {
-      "id": 5,
       "title": "Zähne waschen",
       "description": "Lorem ipsum",
       "category": "20:30",
-      "urgency": "Heiss",
-      "status": "Offen",
-      "completed": false
+      "priority": "Hoch",
+      "time": "10:30",
+      "completed": false,
+      "id": 5
     },
     {
-      "id": 6,
       "title": "Zähne waschen",
       "description": "Lorem ipsum",
       "category": "20:30",
-      "urgency": "Heiss",
-      "status": "Offen",
-      "completed": false
-    },
-    {
-      "id": 7,
-      "title": "Zähne waschen",
-      "description": "Lorem ipsum",
-      "category": "20:30",
-      "urgency": "Heiss",
-      "status": "Offen",
-      "completed": false
-    },
-    {
-      "title": "Zähne waschen",
+      "priority": "Hoch",
+      "time": "10:30",
       "completed": true,
+      "id": 6
+    },
+    {
+      "title": "Zähne waschen",
+      "description": "Lorem ipsum",
+      "category": "20:30",
+      "priority": "Hoch",
+      "time": "10:30",
+      "completed": true,
+      "id": 7
+    },
+    {
+      "title": "Hausaufgaben machen",
+      "description": "Lorem ipsum",
+      "category": "10:30",
+      "priority": "Keine",
+      "time": "Geschlossen",
+      "completed": false,
       "id": 8
     },
     {
-      "title": "Zähne waschen",
-      "completed": true,
+      "title": "Hausaufgaben machen",
+      "description": "Lorem ipsum",
+      "category": "10:30",
+      "priority": "Keine",
+      "time": "Geschlossen",
+      "completed": false,
       "id": 9
     }
   ]

@@ -18,11 +18,20 @@ export default {
   data() {
 		return {
 
+
 		}
 	},
   
   computed: {
     ...mapWritableState(useTodoStore, ['todos', 'todos_open', 'todos_completed']),
+
+    todo_all(){
+      console.log('todos_open:', this.todos_open);
+      console.log('todos_completed:', this.todos_completed);
+      const allTodos = this.todos_open.concat(this.todos_completed);
+      console.log('allTodos:', allTodos);
+      return allTodos;
+    }
   },
   
   methods: {
@@ -46,7 +55,7 @@ export default {
     <ul class="nav nav-tabs" id="myTab" role="tablist">
 
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="all-todos-tab" data-bs-toggle="tab" data-bs-target="#all-todos" type="button" role="tab">Alle ({{ todos != undefined ? todos.data.length : 0 }})</button>
+        <button class="nav-link active" id="all-todos-tab" data-bs-toggle="tab" data-bs-target="#all-todos" type="button" role="tab">Alle ({{ todos.data != undefined ? todos.data.length : 0 }})</button>
       </li>
 
       <li class="nav-item" role="presentation">
@@ -64,10 +73,10 @@ export default {
     <div class="tab-content" id="todos">
 
       <div class="tab-pane fade show active" id="all-todos" role="tabpanel">
-        <TodoList :todos="todos.data" />
+        <TodoList :todos="todo_all" @toggle-todo-state="toggleTodo" />
       </div>
 
-      <div class="tab-pane fade show active" id="open-todos" role="tabpanel">
+      <div class="tab-pane fade show" id="open-todos" role="tabpanel">
         <TodoList :todos="todos_open" @toggle-todo-state="toggleTodo" />
       </div>
 
