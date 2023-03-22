@@ -79,11 +79,8 @@ export const useTodoStore = defineStore('todo', {
 
     },
 
-    async editTodo() {
-
-      // TODO :-)
-      // Axios PUT request
-
+    async editTask(todo) {
+      axios.put("http://localhost:3000/todos/" + todo.id, todo)
     },
 
     async deleteTodo() {

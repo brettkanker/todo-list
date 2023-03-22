@@ -26,7 +26,7 @@ export default {
   },
   
   methods: {
-   ...mapActions(useTodoStore, ['fetchTodos', 'toggleTodo'])
+   ...mapActions(useTodoStore, ['fetchTodos', 'toggleTodo', 'editTask']),
   },
   
   
@@ -64,15 +64,15 @@ export default {
     <div class="tab-content" id="todos">
 
       <div class="tab-pane fade show active" id="all-todos" role="tabpanel">
-        <TodoList :todos="todos_sorted" @toggle-todo-state="toggleTodo" />
+        <TodoList :todos="todos_sorted" @toggle-todo-state="toggleTodo" @edit-task="editTask" />
       </div>
 
       <div class="tab-pane fade show" id="open-todos" role="tabpanel">
-        <TodoList :todos="todos_open" @toggle-todo-state="toggleTodo" />
+        <TodoList :todos="todos_open" @toggle-todo-state="toggleTodo"  @edit-task="editTask" />
       </div>
 
       <div class="tab-pane fade" id="closed-todos" role="tabpanel">
-        <TodoList :todos="todos_completed" @toggle-todo-state="toggleTodo" />
+        <TodoList :todos="todos_completed" @toggle-todo-state="toggleTodo"  @edit-task="editTask" />
       </div>
 
     </div>
