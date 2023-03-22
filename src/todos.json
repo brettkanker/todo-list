@@ -3,83 +3,92 @@
     {
       "title": "Zähne waschen",
       "description": "Lorem ipsum",
-      "category": "20:30",
+      "category": "Zuhause",
       "priority": "Hoch",
-      "time": "10:30",
+      "time": "20:30",
       "completed": false,
       "id": 1
     },
     {
       "title": "Hausaufgaben machen",
       "description": "Lorem ipsum",
-      "category": "10:30",
-      "priority": "Keine",
-      "time": "Geschlossen",
+      "category": "Schule",
+      "priority": "Hoch",
+      "time": "10:30",
       "completed": false,
       "id": 2
     },
     {
-      "title": "Hausaufgaben machen",
+      "title": "Zähne waschen",
       "description": "Lorem ipsum",
-      "category": "10:30",
-      "priority": "Keine",
-      "time": "Geschlossen",
+      "category": "Zuhause",
+      "priority": "Hoch",
+      "time": "20:30",
       "completed": false,
       "id": 3
     },
     {
       "title": "Zähne waschen",
       "description": "Lorem ipsum",
-      "category": "20:30",
+      "category": "Zuhause",
       "priority": "Hoch",
-      "time": "10:30",
+      "time": "20:30",
       "completed": false,
       "id": 4
     },
     {
       "title": "Zähne waschen",
       "description": "Lorem ipsum",
-      "category": "20:30",
+      "category": "Zuhause",
       "priority": "Hoch",
-      "time": "10:30",
+      "time": "20:30",
       "completed": false,
       "id": 5
     },
     {
-      "title": "Zähne waschen",
+      "title": "Hausaufgaben machen",
       "description": "Lorem ipsum",
-      "category": "20:30",
+      "category": "Schule",
       "priority": "Hoch",
       "time": "10:30",
-      "completed": true,
+      "completed": false,
       "id": 6
     },
     {
-      "title": "Zähne waschen",
+      "title": "Hausaufgaben machen",
       "description": "Lorem ipsum",
-      "category": "20:30",
+      "category": "Schule",
       "priority": "Hoch",
       "time": "10:30",
-      "completed": true,
+      "completed": false,
       "id": 7
     },
     {
       "title": "Hausaufgaben machen",
       "description": "Lorem ipsum",
-      "category": "10:30",
-      "priority": "Keine",
-      "time": "Geschlossen",
-      "completed": false,
+      "category": "Schule",
+      "priority": "Hoch",
+      "time": "10:30",
+      "completed": true,
       "id": 8
     },
     {
       "title": "Hausaufgaben machen",
       "description": "Lorem ipsum",
-      "category": "10:30",
-      "priority": "Keine",
-      "time": "Geschlossen",
-      "completed": false,
+      "category": "Schule",
+      "priority": "Hoch",
+      "time": "10:30",
+      "completed": true,
       "id": 9
+    },
+    {
+      "title": "Hausaufgaben machen",
+      "description": "Lorem ipsum",
+      "category": "Schule",
+      "priority": "Hoch",
+      "time": "10:30",
+      "completed": true,
+      "id": 10
     }
   ]
 }

@@ -24,6 +24,12 @@ export const useTodoStore = defineStore('todo', {
           todo.completed == false
         ));
       }
+    },
+
+    todos_sorted: (state) => {
+      if (state.todos.data) {
+        return state.todos.data.sort((a,b) => a.completed - b.completed)
+      }
     }
 
   },

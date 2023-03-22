@@ -26,7 +26,7 @@ export default {
                 <p class="card-text">{{ todo.description }}</p>
                 <a href="#" class="card-link">{{ todo.category }}</a>
                 <p class="card-text">{{ todo.time }}</p>
-                <p class="card-text">{{ todo.urgency }}</p>
+                <p class="card-text">{{ todo.priority }}</p>
 
                 <p :class="todo.completed == true ? 'done': 'open'">{{todo.completed == true ? 'Erledigt!' : 'Offen'}}</p>
                 <button class="btn btn-sm btn-outline-primary" @click="toggle_todo_state(todo.id);">{{ todo.completed == true ? 'Offen markieren' : 'Erledigt markieren' }}</button>

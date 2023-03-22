@@ -18,20 +18,11 @@ export default {
   data() {
 		return {
 
-
 		}
 	},
   
   computed: {
-    ...mapWritableState(useTodoStore, ['todos', 'todos_open', 'todos_completed']),
-
-    todo_all(){
-      console.log('todos_open:', this.todos_open);
-      console.log('todos_completed:', this.todos_completed);
-      const allTodos = this.todos_open.concat(this.todos_completed);
-      console.log('allTodos:', allTodos);
-      return allTodos;
-    }
+    ...mapWritableState(useTodoStore, ['todos', 'todos_open', 'todos_completed', 'todos_sorted']),
   },
   
   methods: {
@@ -73,7 +64,7 @@ export default {
     <div class="tab-content" id="todos">
 
       <div class="tab-pane fade show active" id="all-todos" role="tabpanel">
-        <TodoList :todos="todo_all" @toggle-todo-state="toggleTodo" />
+        <TodoList :todos="todos_sorted" @toggle-todo-state="toggleTodo" />
       </div>
 
       <div class="tab-pane fade show" id="open-todos" role="tabpanel">
