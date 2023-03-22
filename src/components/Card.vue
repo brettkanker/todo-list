@@ -26,7 +26,8 @@ export default {
                 <p class="card-text description overflow-hidden">{{ todo.description }}</p>
                 <p class="card-text category">{{ todo.category }}</p>
                 <p class="card-text time">{{ todo.time }}</p>
-                <p class="card-text priority">{{todo.completed == true ? '' : todo.priority }}</p>
+                <p class="card-text priority">{{todo.priority == "Hoch" ? '🔴' : (todo.priority == "Mittel" ? '🟡' : '🟢') }}</p>
+
 
                 <p :class="todo.completed == true ? 'done': 'open'">{{todo.completed == true ? 'Erledigt!' : 'Offen'}}</p>
                 <button class="btn btn-sm btn-outline-primary" @click="toggle_todo_state(todo.id);">{{ todo.completed == true ? 'Offen markieren' : 'Erledigt markieren' }}</button>
@@ -74,19 +75,19 @@ export default {
   position: absolute;
   top: 70px;
   left: 10px;
-  height: 54px;
+  height: 100px;
 }
 
 .category {
   position: absolute;
-  top: 140px;
-  left: 10px;
+  top: 200px;
+  left: 100px;
 }
 
 .time {
   position: absolute;
   top: 200px;
-  right: 60px;
+  left: 40px;
 }
 
 .priority {
