@@ -24,8 +24,9 @@ export default {
       todo.description = newDesc;
       //Task in DB Updaten
       this.$emit('edit-task', todo)
-    }
 
+      event.target.textContent = this.todo.title ? this.todo.title : 'Titel';
+    },
   }
 
 
@@ -37,15 +38,27 @@ export default {
     <div class="card" v-for="todo in todos">
       <div class="card-body" :class="todo.completed == true ? 'card-open' : 'card-done'">
 
+
         
-        <input class="form-control border-0 bg-transparent text-truncate" type="text" placeholder="Titel" style="max-width: 100%;" @change="edit_task_title(todo, $event.target.value)" :value="todo.title">
-    
-        <textarea class="form-control border-0 bg-transparent" type="text" placeholder="Beschreibung" style="max-width: 100%;" @change="edit_task_desc(todo, $event.target.value)" :value="todo.description"> </textarea>
+        <!-- <input class="form-control border-0 bg-transparent text-truncate" type="text" placeholder="Titel" style="max-width: 100%;" @change="edit_task_title(todo, $event.target.value)" :value="todo.title">
+        <textarea class="form-control border-0 bg-transparent" type="text" placeholder="Beschreibung" style="max-width: 100%;" @change="edit_task_desc(todo, $event.target.value)" :value="todo.description"> </textarea> -->
         
+      
+        <p class="card-title title overflow-hidden"
+        style="max-width: 100%;"
+        contenteditable="true"
+        @blur="edit_task_title(todo, $event.target.value)"
+        >{{ todo.title  ? todo.title : 'Titel' }}</p>
+
+          
+          
+          
+          
+          <p class="card-text description overflow-hidden" style="max-width: 100%;">{{ todo.description  ? todo.description : 'Beschreibung' }}</p>
+          <p class="card-text category">{{ todo.category }}</p>
+          <p class="card-text time">{{ todo.time }}</p>
+          <p class="card-text priority">{{ todo.priority == "Hoch" ? '🔴' : (todo.priority == "Mittel" ? '🟡' : '🟢') }}</p>
         
-        <p class="card-text category">{{ todo.category }}</p>
-        <p class="card-text time">{{ todo.time }}</p>
-        <p class="card-text priority">{{ todo.priority == "Hoch" ? '🔴' : (todo.priority == "Mittel" ? '🟡' : '🟢') }}</p>
 
 
         <p :class="todo.completed == true ? 'done' : 'open'">{{ todo.completed == true ? 'Erledigt!' : 'Offen' }}</p>
@@ -81,18 +94,6 @@ export default {
   background-color: rgb(219, 219, 219);
 }
 
-.title {
-  position: absolute;
-  top: 15px;
-}
-
-.description {
-  position: absolute;
-  top: 70px;
-  left: 10px;
-  height: 100px;
-  width: 100%;
-}
 
 .category {
   position: absolute;
