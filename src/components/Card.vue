@@ -20,13 +20,13 @@ export default {
 
 <template>
     <div class="container d-flex flex-wrap justify-content-left">
-        <div class="card child" v-for="todo in todos" style="width: 13rem;">
+        <div class="card child" v-for="todo in todos">
             <div class="card-body" :class="todo.completed == true ? 'card-open': 'card-done'">
-                <h5 class="card-title">{{ todo.title }}</h5>
-                <p class="card-text">{{ todo.description }}</p>
-                <a href="#" class="card-link">{{ todo.category }}</a>
-                <p class="card-text">{{ todo.time }}</p>
-                <p class="card-text">{{ todo.priority }}</p>
+                <h5 class="card-title title overflow-hidden">{{ todo.title }}</h5>
+                <p class="card-text description overflow-hidden">{{ todo.description }}</p>
+                <p class="card-text category">{{ todo.category }}</p>
+                <p class="card-text time">{{ todo.time }}</p>
+                <p class="card-text priority">{{todo.completed == true ? '' : todo.priority }}</p>
 
                 <p :class="todo.completed == true ? 'done': 'open'">{{todo.completed == true ? 'Erledigt!' : 'Offen'}}</p>
                 <button class="btn btn-sm btn-outline-primary" @click="toggle_todo_state(todo.id);">{{ todo.completed == true ? 'Offen markieren' : 'Erledigt markieren' }}</button>
@@ -41,18 +41,69 @@ export default {
 
 .done {
   color: green;
+  position: absolute;
+  bottom: 40px;
+  left: 10px;
+
 }
 .open {
   color: red;
+  position: absolute;
+  bottom: 40px;
+  left: 10px;
 }
 
-.child {
+.card {
     margin: 20px 10px 20px 10px;
+    width: 13rem;
+    height: 20rem;
 }
 
 .card-open {
     background-color: rgb(219, 219, 219);
 }
+
+.title {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  height: 50px;
+}
+
+.description {
+  position: absolute;
+  top: 70px;
+  left: 10px;
+  height: 54px;
+}
+
+.category {
+  position: absolute;
+  top: 140px;
+  left: 10px;
+}
+
+.time {
+  position: absolute;
+  top: 200px;
+  right: 60px;
+}
+
+.priority {
+  position: absolute;
+  top: 200px;
+  left: 10px;
+}
+
+
+.btn {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+
+
 
 
 </style>

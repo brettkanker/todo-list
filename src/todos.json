@@ -6,7 +6,7 @@
       "category": "Zuhause",
       "priority": "Hoch",
       "time": "20:30",
-      "completed": false,
+      "completed": true,
       "id": 1
     },
     {
@@ -15,7 +15,7 @@
       "category": "Schule",
       "priority": "Hoch",
       "time": "10:30",
-      "completed": false,
+      "completed": true,
       "id": 2
     },
     {
@@ -24,7 +24,7 @@
       "category": "Zuhause",
       "priority": "Hoch",
       "time": "20:30",
-      "completed": false,
+      "completed": true,
       "id": 3
     },
     {
@@ -42,12 +42,12 @@
       "category": "Zuhause",
       "priority": "Hoch",
       "time": "20:30",
-      "completed": false,
+      "completed": true,
       "id": 5
     },
     {
-      "title": "Hausaufgaben machen",
-      "description": "Lorem ipsum",
+      "title": "Hausaufgaben machen und dann noch etwas und ja",
+      "description": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
       "category": "Schule",
       "priority": "Hoch",
       "time": "10:30",
@@ -60,7 +60,7 @@
       "category": "Schule",
       "priority": "Hoch",
       "time": "10:30",
-      "completed": false,
+      "completed": true,
       "id": 7
     },
     {
