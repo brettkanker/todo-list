@@ -1,16 +1,16 @@
 {
   "todos": [
     {
+      "title": "Fick dich",
       "description": "Lorem ipsum",
-      "category": "Zuhause",
+      "category": "Test",
       "priority": "Hoch",
       "time": "20:30",
-      "completed": true,
-      "id": 1,
-      "title": "Fick dich"
+      "completed": false,
+      "id": 1
     },
     {
-      "title": "Hausaufgaben machen",
+      "title": "ICH BIN HIER",
       "description": "Lorem ipsum",
       "category": "Schule",
       "priority": "Tief",
@@ -33,7 +33,7 @@
       "category": "Zuhause",
       "priority": "Mittel",
       "time": "20:30",
-      "completed": false,
+      "completed": true,
       "id": 4
     },
     {
@@ -47,7 +47,7 @@
     },
     {
       "title": "Hier ein Titel",
-      "description": "fakjlfwlwljakwfejkfwjlkfwejkjfjwfjklqjfkjöqfjfeqjjkfejfqjölqkjkfjfklqölkfwjw",
+      "description": "Lorem ipsum",
       "category": "Schule",
       "priority": "Hoch",
       "time": "10:30",

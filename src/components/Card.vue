@@ -2,21 +2,28 @@
 import { useTodoStore } from '../stores/todo';
 
 export default {
-
-  setup() {
-    const store = useTodoStore()
-
-    const categories = store.todos.data
-      ? [...new Set(store.todos.data.map((todo) => todo.category))]
-      : []
-
-    return { categories }
-  },
-
   name: 'Card',
-
   props: {
     todos: Array,
+  },
+
+  // setup() {
+  //   const store = useTodoStore()
+
+  //   const categories = store.todos.data
+  //     ? [...new Set(store.todos.data.map((todo) => todo.category))]
+  //     : []
+
+  //   return { categories }
+  // },
+
+  computed: {
+    categories() {
+      const todos = useTodoStore().todos.data
+      const categories = new Set()
+      todos.forEach(todo => categories.add(todo.category))
+      return Array.from(categories)
+    },
   },
 
   methods: {
@@ -38,6 +45,15 @@ export default {
       //Task in DB Updaten
       this.$emit('edit-task', todo)
     },
+
+    edit_task_category(todo, newCategory){
+      //Task Bearbeiten mit neuem Wert
+      todo.category = newCategory;
+      //Task in DB Updaten
+      this.$emit('edit-task', todo)
+    },
+
+    
   },
 
 
@@ -57,7 +73,7 @@ export default {
               {{ todo.category }}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="myDropdown">
-              <a class="dropdown-item" v-for="category in categories" :key="category">{{ category }}</a>
+              <a class="dropdown-item" v-for="category in categories" :key="category" @click="edit_task_category(todo, category)" :value="category">{{ category }}</a>
             </div>
           </div>
 
