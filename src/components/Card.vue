@@ -40,29 +40,37 @@ export default {
 
 
         
-        <!-- <input class="form-control border-0 bg-transparent text-truncate" type="text" placeholder="Titel" style="max-width: 100%;" @change="edit_task_title(todo, $event.target.value)" :value="todo.title">
-        <textarea class="form-control border-0 bg-transparent" type="text" placeholder="Beschreibung" style="max-width: 100%;" @change="edit_task_desc(todo, $event.target.value)" :value="todo.description"> </textarea> -->
-        
-      
-        <p class="card-title title overflow-hidden"
-        style="max-width: 100%;"
-        contenteditable="true"
-        @blur="edit_task_title(todo, $event.target.value)"
-        >{{ todo.title  ? todo.title : 'Titel' }}</p>
+          <input class="form-control border-0 bg-transparent text-truncate" type="text" placeholder="Titel" style="max-width: 100%;" @change="edit_task_title(todo, $event.target.value)" :value="todo.title">
+          <textarea class="form-control border-0 bg-transparent" type="text" placeholder="Beschreibung" style="max-width: 100%;" @change="edit_task_desc(todo, $event.target.value)" :value="todo.description"> </textarea>
+             
+          <!-- <p class="card-title title overflow-hidden"
+          style="max-width: 100%;"
+          contenteditable="true"
+          @blur="edit_task_title(todo, $event.target.value)"
+          >{{ todo.title  ? todo.title : 'Titel' }}</p> -->
 
-          
-          
-          
-          
-          <p class="card-text description overflow-hidden" style="max-width: 100%;">{{ todo.description  ? todo.description : 'Beschreibung' }}</p>
-          <p class="card-text category">{{ todo.category }}</p>
+          <!-- <p class="card-text description overflow-hidden" style="max-width: 100%;">{{ todo.description  ? todo.description : 'Beschreibung' }}</p> -->
+
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ todo.category }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" v-for="(category, id) in todo.category" :key="id">{{ category }}</a>
+            </div>
+          </div>
+
+
+
+
+          <!-- <p class="card-text category">{{ todo.category }}</p> -->
           <p class="card-text time">{{ todo.time }}</p>
           <p class="card-text priority">{{ todo.priority == "Hoch" ? '🔴' : (todo.priority == "Mittel" ? '🟡' : '🟢') }}</p>
         
 
 
         <p :class="todo.completed == true ? 'done' : 'open'">{{ todo.completed == true ? 'Erledigt!' : 'Offen' }}</p>
-        <button class="btn btn-sm btn-outline-primary" @click="toggle_todo_state(todo.id);">{{ todo.completed == true ? 'Offen markieren' : 'Erledigt markieren' }}</button>
+        <button class="btn btn-sm btn-outline-primary knopf" @click="toggle_todo_state(todo.id);">{{ todo.completed == true ? 'Offen markieren' : 'Erledigt markieren' }}</button>
       </div>
     </div>
   </div>
@@ -113,7 +121,7 @@ export default {
   left: 10px;
 }
 
-.btn {
+.knopf {
   position: absolute;
   bottom: 10px;
   left: 10px;

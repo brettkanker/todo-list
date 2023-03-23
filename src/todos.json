@@ -5,8 +5,9 @@
       "category": "Zuhause",
       "priority": "Hoch",
       "time": "20:30",
-      "completed": false,
-      "id": 1
+      "completed": true,
+      "id": 1,
+      "title": "Fick dich"
     },
     {
       "title": "Hausaufgaben machen",
@@ -27,6 +28,7 @@
       "id": 3
     },
     {
+      "title": "Hallo",
       "description": "LOL",
       "category": "Zuhause",
       "priority": "Mittel",
@@ -44,8 +46,8 @@
       "id": 5
     },
     {
-      "title": "",
-      "description": "",
+      "title": "Hier ein Titel",
+      "description": "fakjlfwlwljakwfejkfwjlkfwejkjfjwfjklqjfkjöqfjfeqjjkfejfqjölqkjkfjfklqölkfwjw",
       "category": "Schule",
       "priority": "Hoch",
       "time": "10:30",
