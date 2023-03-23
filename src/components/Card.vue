@@ -7,16 +7,6 @@ export default {
     todos: Array,
   },
 
-  // setup() {
-  //   const store = useTodoStore()
-
-  //   const categories = store.todos.data
-  //     ? [...new Set(store.todos.data.map((todo) => todo.category))]
-  //     : []
-
-  //   return { categories }
-  // },
-
   computed: {
     categories() {
       const todos = useTodoStore().todos.data
@@ -24,6 +14,26 @@ export default {
       todos.forEach(todo => categories.add(todo.category))
       return Array.from(categories)
     },
+
+    days() {
+      const days = new Set()
+      days.add('Mo')
+      days.add('Di')
+      days.add('Mi')
+      days.add('Do')
+      days.add('Fr')
+      days.add('Sa')
+      days.add('So')
+      return Array.from(days)
+    },
+
+    priorities() {
+      const priorities = new Set()
+      priorities.add('🔴')
+      priorities.add('🟡')
+      priorities.add('🟢')
+      return Array.from(priorities)
+    }
   },
 
   methods: {
@@ -40,16 +50,22 @@ export default {
     },
     
     edit_task_desc(todo, newDesc){
-      //Task Bearbeiten mit neuem Wert
       todo.description = newDesc;
-      //Task in DB Updaten
       this.$emit('edit-task', todo)
     },
 
     edit_task_category(todo, newCategory){
-      //Task Bearbeiten mit neuem Wert
       todo.category = newCategory;
-      //Task in DB Updaten
+      this.$emit('edit-task', todo)
+    },
+
+    edit_task_day(todo, newDay){
+      todo.day = newDay;
+      this.$emit('edit-task', todo)
+    },
+
+    edit_task_priority(todo, newPriority){
+      todo.priority = newPriority;
       this.$emit('edit-task', todo)
     },
 
@@ -69,17 +85,34 @@ export default {
           <textarea class="form-control border-0 bg-transparent" type="text" placeholder="Beschreibung" style="max-width: 100%;" @change="edit_task_desc(todo, $event.target.value)" :value="todo.description"> </textarea>
 
           <div class="dropdown category">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target="#myDropdown">
+            <button class="btn bg-transparent dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target="#myCatDropdown">
               {{ todo.category }}
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="myDropdown">
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="myCatDropdown">
               <a class="dropdown-item" v-for="category in categories" :key="category" @click="edit_task_category(todo, category)" :value="category">{{ category }}</a>
             </div>
           </div>
 
-          <!-- <p class="card-text category">{{ todo.category }}</p> -->
-          <p class="card-text time">{{ todo.time }}</p>
-          <p class="card-text priority">{{ todo.priority == "Hoch" ? '🔴' : (todo.priority == "Mittel" ? '🟡' : '🟢') }}</p>
+          <div class="dropdown day">
+            <button class="btn bg-transparent dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target="#myDayDropdown">
+              {{ todo.day }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="myDayDropdown">
+              <a class="dropdown-item" v-for="day in days" :key="day" @click="edit_task_day(todo, day)" :value="day">{{ day }}</a>
+            </div>
+          </div>
+          
+          <div class="dropdown priority">
+            <button class="btn bg-transparent dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target="#myPrioDropdown">
+              {{ todo.priority }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="myPrioDropdown">
+              <a class="dropdown-item" v-for="priority in priorities" :key="priority" @click="edit_task_priority(todo, priority)" :value="priority">{{ priority }}</a>
+            </div>
+          </div>
+
+
+          <!-- <p class="card-text priority">{{ todo.priority == "Hoch" ? '🔴' : (todo.priority == "Mittel" ? '🟡' : '🟢') }}</p> -->
         
 
 
@@ -107,8 +140,8 @@ export default {
   left: 15px;
 }
 .card {
-  margin: 20px 10px 20px 10px;
-  width: 13rem;
+  margin: 20px 15px 20px 10px;
+  width: 14rem;
   height: 20rem;
 }
 
@@ -116,23 +149,22 @@ export default {
   background-color: rgb(219, 219, 219);
 }
 
-
 .category {
   position: absolute;
-  top: 200px;
-  left: 100px;
+  top: 193px;
+  left: 120px;
 }
 
-.time {
+.day {
   position: absolute;
-  top: 200px;
-  left: 40px;
+  top: 193px;
+  left: 60px;
 }
 
 .priority {
   position: absolute;
-  top: 200px;
-  left: 10px;
+  top: 193px;
+  left: 5px;
 }
 
 .knopf {
