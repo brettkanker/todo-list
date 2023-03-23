@@ -1,5 +1,18 @@
 <script>
+import { useTodoStore } from '../stores/todo';
+
 export default {
+
+  setup() {
+    const store = useTodoStore()
+
+    const categories = store.todos.data
+      ? [...new Set(store.todos.data.map((todo) => todo.category))]
+      : []
+
+    return { categories }
+  },
+
   name: 'Card',
 
   props: {
@@ -24,10 +37,8 @@ export default {
       todo.description = newDesc;
       //Task in DB Updaten
       this.$emit('edit-task', todo)
-
-      event.target.textContent = this.todo.title ? this.todo.title : 'Titel';
     },
-  }
+  },
 
 
 }
@@ -38,30 +49,17 @@ export default {
     <div class="card" v-for="todo in todos">
       <div class="card-body" :class="todo.completed == true ? 'card-open' : 'card-done'">
 
-
-        
           <input class="form-control border-0 bg-transparent text-truncate" type="text" placeholder="Titel" style="max-width: 100%;" @change="edit_task_title(todo, $event.target.value)" :value="todo.title">
           <textarea class="form-control border-0 bg-transparent" type="text" placeholder="Beschreibung" style="max-width: 100%;" @change="edit_task_desc(todo, $event.target.value)" :value="todo.description"> </textarea>
-             
-          <!-- <p class="card-title title overflow-hidden"
-          style="max-width: 100%;"
-          contenteditable="true"
-          @blur="edit_task_title(todo, $event.target.value)"
-          >{{ todo.title  ? todo.title : 'Titel' }}</p> -->
 
-          <!-- <p class="card-text description overflow-hidden" style="max-width: 100%;">{{ todo.description  ? todo.description : 'Beschreibung' }}</p> -->
-
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="dropdown category">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target="#myDropdown">
               {{ todo.category }}
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" v-for="(category, id) in todo.category" :key="id">{{ category }}</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="myDropdown">
+              <a class="dropdown-item" v-for="category in categories" :key="category">{{ category }}</a>
             </div>
           </div>
-
-
-
 
           <!-- <p class="card-text category">{{ todo.category }}</p> -->
           <p class="card-text time">{{ todo.time }}</p>

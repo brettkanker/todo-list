@@ -30,6 +30,17 @@ export const useTodoStore = defineStore('todo', {
       if (state.todos.data) {
         return state.todos.data.sort((a,b) => a.completed - b.completed)
       }
+    },
+
+    // Get all unique categories in todos
+    categories: (state) => {
+      const categories = []
+      state.todos.data.forEach((todo) => {
+        if (!categories.includes(todo.category)) {
+          categories.push(todo.category)
+        }
+      })
+      return categories
     }
 
   },

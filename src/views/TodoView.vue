@@ -22,7 +22,7 @@ export default {
 	},
   
   computed: {
-    ...mapWritableState(useTodoStore, ['todos', 'todos_open', 'todos_completed', 'todos_sorted']),
+    ...mapWritableState(useTodoStore, ['todos', 'todos_open', 'todos_completed', 'todos_sorted', 'categories']),
   },
   
   methods: {
