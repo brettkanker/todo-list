@@ -69,6 +69,11 @@ export default {
       this.$emit('edit-task', todo)
     },
 
+    archive_todo(todo){
+      todo.archived = true;
+      this.$emit('edit-task', todo)
+    },
+
     
   },
 
@@ -111,13 +116,10 @@ export default {
             </div>
           </div>
 
+         <p :class="todo.completed == true ? 'done' : 'open'">{{ todo.completed == true ? 'Erledigt!' : 'Offen' }}</p>
+         <button class="btn btn-sm btn-outline-primary button1" @click="toggle_todo_state(todo.id);">{{ todo.completed == true ? 'Offen markieren' : 'Erledigt markieren' }}</button>
 
-          <!-- <p class="card-text priority">{{ todo.priority == "Hoch" ? '🔴' : (todo.priority == "Mittel" ? '🟡' : '🟢') }}</p> -->
-        
-
-
-        <p :class="todo.completed == true ? 'done' : 'open'">{{ todo.completed == true ? 'Erledigt!' : 'Offen' }}</p>
-        <button class="btn btn-sm btn-outline-primary knopf" @click="toggle_todo_state(todo.id);">{{ todo.completed == true ? 'Offen markieren' : 'Erledigt markieren' }}</button>
+         <button class="btn bg-transparent button2" @click="archive_todo(todo)">🗑️</button>
       </div>
     </div>
   </div>
@@ -167,9 +169,15 @@ export default {
   left: 5px;
 }
 
-.knopf {
+.button1 {
   position: absolute;
   bottom: 10px;
   left: 10px;
+}
+
+.button2 {
+  position: absolute;
+  bottom: 10px;
+  right: 7px;
 }
 </style>

@@ -3,10 +3,10 @@
     {
       "title": "Fick dich",
       "description": "Lorem ipsum",
-      "category": "Test",
-      "priority": "🟡",
-      "day": "Mo",
+      "category": "Schule",
+      "priority": "🟢",
       "completed": false,
+      "archived": true,
       "id": 1
     },
     {
@@ -14,8 +14,8 @@
       "description": "Lorem ipsum",
       "category": "Schule",
       "priority": "🟡",
-      "day": "Di",
-      "completed": true,
+      "completed": false,
+      "archived": true,
       "id": 2
     },
     {
@@ -23,8 +23,8 @@
       "description": "Lorem ipsum",
       "category": "Arbeit",
       "priority": "🔴",
-      "day": "Mi",
-      "completed": true,
+      "completed": false,
+      "archived": true,
       "id": 3
     },
     {
@@ -32,8 +32,8 @@
       "description": "LOLTHis funkciotn\n",
       "category": "Zuhause",
       "priority": "🟡",
-      "day": "Do",
-      "completed": true,
+      "completed": false,
+      "archived": false,
       "id": 4
     },
     {
@@ -41,8 +41,8 @@
       "description": "Lorem ipsum",
       "category": "Test",
       "priority": "🔴",
-      "day": "Fr",
-      "completed": true,
+      "completed": false,
+      "archived": false,
       "id": 5
     },
     {
@@ -52,6 +52,7 @@
       "priority": "🟢",
       "day": "Sa",
       "completed": false,
+      "archived": false,
       "id": 6
     },
     {
@@ -59,8 +60,8 @@
       "description": "Lorem ipsum",
       "category": "Schule",
       "priority": "🔴",
-      "day": "So",
-      "completed": true,
+      "completed": false,
+      "archived": true,
       "id": 7
     },
     {
@@ -70,6 +71,7 @@
       "priority": "🔴",
       "day": "Di",
       "completed": true,
+      "archived": true,
       "id": 8
     },
     {
@@ -79,6 +81,7 @@
       "priority": "🟢",
       "day": "Di",
       "completed": true,
+      "archived": false,
       "id": 9
     },
     {
@@ -88,7 +91,8 @@
       "priority": "🟢",
       "day": "Di",
       "completed": true,
-      "id": 10
+      "id": 10,
+      "archived": true
     }
   ]
 }
