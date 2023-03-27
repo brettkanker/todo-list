@@ -9,11 +9,27 @@ export const useTodoStore = defineStore('todo', {
   }),
 
   getters: {
+
+    archived_todos: (state) => {
+      if (state.todos.data) {
+        return state.todos.data.filter(todo => (
+          todo.archived == true
+        ));
+      } 
+    },
+
+    non_archived_todos: (state) => {
+      if (state.todos.data) {
+        return state.todos.data.filter(todo => (
+          todo.archived == false
+        ));
+      } 
+    },
     
     todos_completed: (state) => {
       if (state.todos.data) {
         return state.todos.data.filter(todo => (
-          todo.completed == true
+          todo.completed == true && todo.archived == false
         ));
       }
     },
@@ -21,7 +37,7 @@ export const useTodoStore = defineStore('todo', {
     todos_open: (state) => {
       if (state.todos.data) {
         return state.todos.data.filter(todo => (
-          todo.completed == false
+          todo.completed == false && todo.archived == false
         ));
       }
     },
@@ -41,7 +57,7 @@ export const useTodoStore = defineStore('todo', {
         }
       })
       return categories
-    },
+    }
 
   },
 
@@ -77,6 +93,7 @@ export const useTodoStore = defineStore('todo', {
         category: this.current_todo.category,
         priority: this.current_todo.priority,
         time: this.current_todo.time,
+        archived: this.current_todo.archived,
         completed: this.current_todo.completed
       });
 

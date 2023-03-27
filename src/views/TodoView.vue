@@ -9,10 +9,13 @@ import { useTodoStore } from '@/stores/todo'
 // Lade Komponente TodoList
 import TodoList from '@/components/Card.vue'
 
+import ArchiveList from '@/components/Archive.vue'
+
 export default {
 
   components: {
-    TodoList
+    TodoList,
+    ArchiveList
   },
 
   data() {
@@ -22,7 +25,15 @@ export default {
 	},
   
   computed: {
-    ...mapWritableState(useTodoStore, ['todos', 'todos_open', 'todos_completed', 'todos_sorted', 'categories']),
+    ...mapWritableState(useTodoStore, [
+      'todos', 
+      'todos_open', 
+      'todos_completed', 
+      'todos_sorted', 
+      'archived_todos', 
+      'non_archived_todos', 
+      'categories'
+    ]),
   },
   
   methods: {
@@ -46,7 +57,7 @@ export default {
     <ul class="nav nav-tabs" id="myTab" role="tablist">
 
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="all-todos-tab" data-bs-toggle="tab" data-bs-target="#all-todos" type="button" role="tab">Alle ({{ todos.data != undefined ? todos.data.length : 0 }})</button>
+        <button class="nav-link active" id="all-todos-tab" data-bs-toggle="tab" data-bs-target="#all-todos" type="button" role="tab">Alle ({{ non_archived_todos != undefined ? non_archived_todos.length : 0 }})</button>
       </li>
 
       <li class="nav-item" role="presentation">
@@ -55,6 +66,10 @@ export default {
 
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="closed-todos-tab" data-bs-toggle="tab" data-bs-target="#closed-todos" type="button" role="tab">Abgeschlossene ({{ todos_completed != undefined ? todos_completed.length : 0 }})</button>
+      </li>
+
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="archived-todos-tab" data-bs-toggle="tab" data-bs-target="#archived-todos" type="button" role="tab">🗑️</button>
       </li>
 
     </ul>
@@ -67,12 +82,16 @@ export default {
         <TodoList :todos="todos_sorted" @toggle-todo-state="toggleTodo" @edit-task="editTask" />
       </div>
 
-      <div class="tab-pane fade show" id="open-todos" role="tabpanel">
+      <div class="tab-pane fade" id="open-todos" role="tabpanel">
         <TodoList :todos="todos_open" @toggle-todo-state="toggleTodo"  @edit-task="editTask" />
       </div>
 
       <div class="tab-pane fade" id="closed-todos" role="tabpanel">
         <TodoList :todos="todos_completed" @toggle-todo-state="toggleTodo"  @edit-task="editTask" />
+      </div>
+
+      <div class="tab-pane fade" id="archived-todos" role="tabpanel">
+        <ArchiveList :todos="archived_todos" />
       </div>
 
     </div>
