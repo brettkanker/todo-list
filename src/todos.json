@@ -1,16 +1,6 @@
 {
   "todos": [
     {
-      "title": "Fick dich",
-      "description": "Lorem ipsum",
-      "category": "Schule",
-      "priority": "🟢",
-      "completed": false,
-      "archived": true,
-      "id": 1,
-      "day": "Mo"
-    },
-    {
       "title": "Zähne waschen",
       "description": "Lorem ipsum",
       "category": "Arbeit",
@@ -60,23 +50,15 @@
       "id": 8
     },
     {
-      "title": "Hausaufgaben machen",
-      "description": "Lorem ipsum",
-      "category": "Schule",
-      "priority": "🟢",
-      "day": "Di",
-      "completed": true,
-      "archived": true,
-      "id": 9
+      "id": 14,
+      "archived": true
     },
     {
-      "title": "Hausaufgaben machen",
-      "description": "Lorem ipsum",
-      "category": "Schule",
-      "priority": "🟢",
-      "day": "Di",
-      "completed": true,
-      "id": 10,
+      "id": 15,
+      "archived": true
+    },
+    {
+      "id": 16,
       "archived": true
     }
   ]

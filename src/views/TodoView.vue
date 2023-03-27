@@ -6,9 +6,11 @@ import { mapState, mapWritableState, mapActions } from 'pinia'
 // Lade Store
 import { useTodoStore } from '@/stores/todo'
 
-// Lade Komponente TodoList
-import TodoList from '@/components/Card.vue'
+// Lade Axios
+import axios from 'axios';
 
+// Lade Komponente 
+import TodoList from '@/components/Card.vue'
 import ArchiveList from '@/components/Archive.vue'
 
 export default {
@@ -38,6 +40,21 @@ export default {
   
   methods: {
    ...mapActions(useTodoStore, ['fetchTodos', 'toggleTodo', 'editTask', 'deleteTodo']),
+   addNewTodo() {
+      axios.post('http://localhost:3000/todos/', { id: this.newTodoId })
+        .then(response => {
+          // Handle successful response here
+          console.log(response.data)
+          // Clear newTodoId to prepare for next addition
+          this.newTodoId = ''
+          // Fetch updated todos from the server
+          this.fetchTodos()
+        })
+        .catch(error => {
+          // Handle error response here
+          console.error(error)
+        })
+    }
   },
   
   
@@ -96,11 +113,9 @@ export default {
 
     </div>
 
+    <button class="btn bg-transparent btn-lg rounded-circle button1" @click="addNewTodo"> ➕</button>
+
     <hr />
-
-
-   
-  
 
   </main>
 </template>
@@ -117,5 +132,10 @@ li {
 
 .open {
   color: red;
+}
+
+.button1 {
+  position: relative;
+  left: 95%;
 }
 </style>
