@@ -60,6 +60,7 @@ export const useTodoStore = defineStore('todo', {
     }
 
   },
+  
 
   actions: {
     
@@ -111,12 +112,6 @@ export const useTodoStore = defineStore('todo', {
       axios.put("http://localhost:3000/todos/" + todo.id, todo)
     },
 
-    async deleteTodo() {
-
-      // TODO :-)
-      // Axios DELETE request
-
-    }
 
   },
 

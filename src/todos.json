@@ -11,34 +11,13 @@
       "day": "Mo"
     },
     {
-      "title": "ICH BIN HIER",
-      "description": "Lorem ipsum",
-      "category": "Schule",
-      "priority": "🟡",
-      "completed": false,
-      "archived": true,
-      "id": 2,
-      "day": "Do"
-    },
-    {
       "title": "Zähne waschen",
       "description": "Lorem ipsum",
       "category": "Arbeit",
       "priority": "🔴",
-      "completed": false,
-      "archived": true,
-      "id": 3,
-      "day": "Mo"
-    },
-    {
-      "title": "Hallo",
-      "description": "LOLTHis funkciotn\n",
-      "category": "Zuhause",
-      "priority": "🟡",
-      "completed": false,
-      "archived": true,
-      "id": 4,
-      "day": "Sa"
+      "archived": false,
+      "completed": true,
+      "id": 3
     },
     {
       "title": "Zähne waschen",
@@ -66,7 +45,7 @@
       "category": "Schule",
       "priority": "🔴",
       "completed": false,
-      "archived": true,
+      "archived": false,
       "id": 7,
       "day": "Sa"
     },
@@ -77,7 +56,7 @@
       "priority": "🔴",
       "day": "Di",
       "completed": true,
-      "archived": true,
+      "archived": false,
       "id": 8
     },
     {

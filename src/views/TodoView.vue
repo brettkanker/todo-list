@@ -37,7 +37,7 @@ export default {
   },
   
   methods: {
-   ...mapActions(useTodoStore, ['fetchTodos', 'toggleTodo', 'editTask']),
+   ...mapActions(useTodoStore, ['fetchTodos', 'toggleTodo', 'editTask', 'deleteTodo']),
   },
   
   
@@ -91,7 +91,7 @@ export default {
       </div>
 
       <div class="tab-pane fade" id="archived-todos" role="tabpanel">
-        <ArchiveList :todos="archived_todos" />
+        <ArchiveList :todos="archived_todos" @delete-todo="deleteTodo"/>
       </div>
 
     </div>
