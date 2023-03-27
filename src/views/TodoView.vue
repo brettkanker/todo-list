@@ -91,7 +91,7 @@ export default {
       </div>
 
       <div class="tab-pane fade" id="archived-todos" role="tabpanel">
-        <ArchiveList :todos="archived_todos" @delete-todo="deleteTodo"/>
+        <ArchiveList :todos="archived_todos" />
       </div>
 
     </div>
