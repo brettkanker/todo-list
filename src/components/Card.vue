@@ -7,6 +7,12 @@ export default {
     todos: Array,
   },
 
+  data() {
+    return {
+      newCategoryInput: '',
+    };
+  },
+
   computed: {
     categories() {
       const todos = useTodoStore().todos.data
@@ -60,6 +66,15 @@ export default {
       this.$emit('edit-task', todo)
     },
 
+    add_new_category(todo) {
+      const newCategory = this.newCategoryInput.trim();
+      if (newCategory !== '') {
+        todo.category = newCategory;
+        this.$emit('edit-task', todo);
+        this.newCategoryInput = ''; // reset input field
+      }
+    },
+
     edit_task_day(todo, newDay){
       todo.day = newDay;
       this.$emit('edit-task', todo)
@@ -98,6 +113,7 @@ export default {
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="myCatDropdown">
                 <a class="dropdown-item" v-for="category in categories" :key="category" @click="edit_task_category(todo, category)" :value="category">{{ category }}</a>
+                <input class="dropdown-item form-control border-0 bg-transparent text-truncate" type="text" placeholder="Neue Kategorie" style="max-width: 100%;" v-model="newCategoryInput" @change="add_new_category(todo, $event.target.value)">
               </div>
             </div>
 
