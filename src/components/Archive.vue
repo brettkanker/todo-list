@@ -18,7 +18,7 @@ export default {
     delete_todo: function(todo) {
       axios.delete('http://localhost:3000/todos/' + todo.id, todo)
         .then(response => {
-          todo.archived = false;
+          todo.deleted = true;
           this.$emit('delete-todo', todo);
         })
         .catch(error => {
@@ -35,6 +35,7 @@ export default {
   <div class="container d-flex flex-wrap justify-content-left">
     <div v-for="todo in todos">
         <div v-if="todo.archived">
+          <div v-if="!todo.deleted">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title title overflow-hidden">{{ todo.title }}</h5>
@@ -46,10 +47,10 @@ export default {
 
                     <button class="btn bg-transparent border-dark button1" @click="un_archive_todo(todo)">Speichern</button>
                     <button class="btn bg-transparent border-dark button2" @click="delete_todo(todo)">Löschen</button>
-                </div>
-            </div>   
-        </div>
-        
+              </div>
+          </div>   
+        </div> 
+      </div>
     </div>
   </div>
 </template>

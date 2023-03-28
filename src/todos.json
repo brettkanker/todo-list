@@ -1,64 +1,13 @@
 {
   "todos": [
     {
-      "title": "Zähne waschen",
-      "description": "Lorem ipsum",
-      "category": "Arbeit",
+      "id": 1,
+      "title": "gakjfkld",
+      "description": "afjdkalkj",
       "priority": "🔴",
-      "archived": false,
+      "day": "Mi",
+      "category": "Fick",
       "completed": true,
-      "id": 3
-    },
-    {
-      "title": "Zähne waschen",
-      "description": "Lorem ipsum",
-      "category": "Test",
-      "priority": "🔴",
-      "completed": false,
-      "archived": false,
-      "id": 5,
-      "day": "Mo"
-    },
-    {
-      "title": "Hier ein Titel",
-      "description": "Lorem ipsum",
-      "category": "Schule",
-      "priority": "🟢",
-      "day": "Sa",
-      "completed": false,
-      "archived": false,
-      "id": 6
-    },
-    {
-      "title": "Hausaufgaben machen",
-      "description": "Lorem ipsum",
-      "category": "Schule",
-      "priority": "🔴",
-      "completed": false,
-      "archived": false,
-      "id": 7,
-      "day": "Sa"
-    },
-    {
-      "title": "Hausaufgaben machen",
-      "description": "Lorem ipsum",
-      "category": "Schule",
-      "priority": "🔴",
-      "day": "Di",
-      "completed": true,
-      "archived": false,
-      "id": 8
-    },
-    {
-      "id": 14,
-      "archived": true
-    },
-    {
-      "id": 15,
-      "archived": true
-    },
-    {
-      "id": 16,
       "archived": true
     }
   ]
