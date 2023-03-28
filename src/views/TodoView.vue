@@ -113,7 +113,10 @@ export default {
 
     </div>
 
-    <button class="btn bg-transparent btn-lg rounded-circle button1" @click="addNewTodo"> ➕</button>
+    <div class="position-relative">
+      <button class="btn bg-transparent btn-lg rounded-circle position-absolute bottom-0 end-0" @click="addNewTodo"> ➕</button>
+    </div>
+    
 
     <hr />
 
@@ -134,8 +137,4 @@ li {
   color: red;
 }
 
-.button1 {
-  position: relative;
-  left: 95%;
-}
 </style>

@@ -1,14 +1,3 @@
 {
-  "todos": [
-    {
-      "id": 1,
-      "title": "gakjfkld",
-      "description": "afjdkalkj",
-      "priority": "🔴",
-      "day": "Mi",
-      "category": "Fick",
-      "completed": true,
-      "archived": true
-    }
-  ]
+  "todos": []
 }
