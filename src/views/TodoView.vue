@@ -41,7 +41,11 @@ export default {
   methods: {
    ...mapActions(useTodoStore, ['fetchTodos', 'toggleTodo', 'editTask', 'deleteTodo']),
    addNewTodo() {
-      axios.post('http://localhost:3000/todos/', { id: this.newTodoId })
+      axios.post('http://localhost:3000/todos/', { 
+          id: this.newTodoId,
+          archived: false,
+          completed: false
+        })
         .then(response => {
           // Handle successful response here
           console.log(response.data)
